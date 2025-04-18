@@ -33,7 +33,3 @@ ld -m elf_i386 -s -o output_name filename.o
 
 ### 📌 Note:
 These projects are intended to illustrate the understanding of registers, memory addressing, stack operations, loops, conditionals, and system calls at the assembly level. They reflect foundational knowledge in computer architecture and low-level programming.
-
-```
-
----
