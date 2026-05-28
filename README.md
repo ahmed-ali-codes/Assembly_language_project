@@ -1,35 +1,112 @@
-# Assembly Language Projects Collection
+# 🖥️ Assembly Language Projects
 
-This repository showcases a collection of projects written in **Assembly Language**, developed during university courses and personal learning. These low-level programs directly interact with the system hardware and are designed to demonstrate fine control over memory and CPU instructions.
-
-### 💡 About Assembly Language
-Assembly is a low-level programming language that is closely tied to a computer's architecture. It allows precise control of hardware resources and is commonly used in embedded systems, performance-critical tasks, and learning how computers execute instructions at the machine level.
-
-### 📁 Project Structure
-
-Each folder contains an individual assembly project with:
-- `.asm` source file(s)
-- A short `README.md` file explaining the code
-- Test outputs or screenshots (optional)
-- Instructions for assembling and running the program
-
-### 🛠 Sample Projects
-- Simple Calculator in Assembly
-- String Reversal Program
-- Number to ASCII Converter
-- Even/Odd Checker
-- Interrupt-driven Input/Output
-
-### ⚙️ How to Assemble & Run (NASM Example)
-```bash
-nasm -f elf32 filename.asm
-ld -m elf_i386 -s -o output_name filename.o
-./output_name
-```
-
-> 📌 *Note:* Make sure you're running on a system that supports 32-bit execution, or use emulators like DOSBox for 16-bit programs.
+A collection of x86 Assembly Language programs written during university coursework and self-study. Each project directly interacts with system hardware through CPU registers, memory addressing, and DOS/BIOS interrupts — demonstrating low-level control that higher-level languages abstract away.
 
 ---
 
-### 📌 Note:
-These projects are intended to illustrate the understanding of registers, memory addressing, stack operations, loops, conditionals, and system calls at the assembly level. They reflect foundational knowledge in computer architecture and low-level programming.
+## About Assembly Language
+
+Assembly is a low-level programming language with a near 1-to-1 correspondence between its instructions and the CPU's machine code. Writing in Assembly teaches you how programs actually execute: how registers hold values, how the stack manages function calls, how memory is laid out, and how the operating system is invoked through interrupts. It is foundational knowledge for computer architecture, embedded systems, OS development, and reverse engineering.
+
+---
+
+## Projects
+
+| # | Project | Description | Concepts |
+|---|---|---|---|
+| 1 | [Clock](./Clock/) | A 12-hour countdown clock with user-set start time | Interrupts, carry logic, loops, ASCII conversion |
+
+> More projects coming soon — see the [Roadmap](#roadmap) below.
+
+---
+
+## Tools & Environment
+
+All programs are written for the **x86 (8086/80286) architecture** and use **MASM/TASM** directives with **DOS INT 21h** system calls.
+
+Recommended environments:
+
+- **[emu8086](https://emu8086-microprocessor-emulator.en.softonic.com/)** — beginner-friendly emulator with a built-in editor and debugger
+- **[DOSBox](https://www.dosbox.com/)** + MASM or TASM — for a closer-to-real DOS experience
+- **NASM** on Linux — for projects targeting flat binary or ELF output
+
+---
+
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/ahmed-ali-codes/Assembly_language_project.git
+cd Assembly_language_project
+```
+
+### Run any project
+
+Navigate into a project folder and follow its own `README.md` for assembler-specific build steps. For example:
+
+```
+cd Clock
+```
+
+Then follow the instructions in [Clock/README.md](./Clock/README.md).
+
+---
+
+## Repository Structure
+
+```
+Assembly_language_project/
+│
+├── Clock/
+│   ├── clock.asm         ← Source code
+│   └── README.md         ← Project-specific instructions
+│
+└── README.md             ← This file
+```
+
+Each project folder contains:
+- The `.asm` source file(s), fully commented
+- A `README.md` explaining what the program does, how to build it, and sample output
+
+---
+
+## Concepts Covered Across Projects
+
+- CPU registers (`AX`, `BX`, `CX`, `DX`, `SI`, `DI`, `SP`, `BP`)
+- Memory segmentation (`.CODE`, `.DATA`, `.STACK`)
+- DOS interrupts (`INT 21h`) for I/O, string display, and program termination
+- BIOS interrupts for hardware-level operations
+- Stack operations (`PUSH`, `POP`, `CALL`, `RET`)
+- Conditional and unconditional jumps (`JMP`, `JE`, `JNE`, `JG`, etc.)
+- Loops (`LOOP`, `CX`-based counting)
+- ASCII ↔ integer conversion
+- Carry propagation and BCD-style digit arithmetic
+
+---
+
+## Roadmap
+
+Planned projects to be added:
+
+- [ ] **Simple Calculator** — addition, subtraction, multiplication, division via keyboard input
+- [ ] **String Reversal** — reverse a user-entered string using stack push/pop
+- [ ] **Number to ASCII Converter** — convert a binary number to its ASCII decimal representation
+- [ ] **Even/Odd Checker** — use bitwise AND to determine parity
+- [ ] **Interrupt-driven I/O** — custom interrupt handlers using INT vectors
+- [ ] **Bubble Sort** — sort an array of integers in memory
+- [ ] **Fibonacci Sequence** — recursive or iterative generation using registers
+
+---
+
+## Author
+
+**Ahmed Ali** — Computer Science student exploring low-level systems programming.
+
+Feel free to open an issue or pull request if you spot a bug or want to contribute a project!
+
+---
+
+## License
+
+This repository is open-source under the [MIT License](./LICENSE).
